@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-// UTILIZZATO REACT-QUERY PER GESTIRE IL FETCH DEGLI AEROPORTI
+//Function to fetch the list of airports from the API
 const fetchAirports = async () => {
   const response = await axios.get(process.env.REACT_APP_AIRPORTS_URL);
   return response.data;
 };
 
-// HOOK PERSONALIZZATO PER RICHIESTA DEGLI AEROPORTI
+//Custom hook to fetch airports using React Query
 function useFetchAirports() {
   return useQuery({
     queryKey: ["airports"],

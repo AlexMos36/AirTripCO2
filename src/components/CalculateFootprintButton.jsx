@@ -7,10 +7,14 @@ const CalculateFootprintButton = ({
   calculateFootprint,
   disabled,
 }) => {
+  //Handle button clickevent
   const handleClick = () => {
+    //Check if the departure and arrival airports are the same
     if (departureAirport === arrivalAirport) {
+      //If there are the same, calculate footprint with sameAirport flag set to true
       calculateFootprint(departureAirport, arrivalAirport, passengers, true);
     } else {
+      // Otherwise, calculate footprint normally
       calculateFootprint(departureAirport, arrivalAirport, passengers);
     }
   };

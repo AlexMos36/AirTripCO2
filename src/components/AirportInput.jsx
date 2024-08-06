@@ -23,6 +23,7 @@ const AirportInput = ({
           placeholder={placeholder}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         />
+        {/* Clear button, visible only if there is a value in the input field  */}
         {value && (
           <button
             type="button"
@@ -33,6 +34,7 @@ const AirportInput = ({
           </button>
         )}
       </div>
+      {/* Suggestions dropdown, visible only if there are suggestions */}
       {suggestions.length > 0 && (
         <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-lg mt-1 max-h-60 overflow-auto">
           {suggestions.map((airport, index) => (
@@ -45,6 +47,7 @@ const AirportInput = ({
                   : "text-gray-900"
               }`}
             >
+              {/* Display airport code, name and country */}
               <span className="block truncate">
                 {airport.code} - {airport.name} ({airport.country})
               </span>

@@ -9,6 +9,7 @@ import useAirportSelector from "../hooks/useAirportSelector";
 import useFetchAirports from "../hooks/useFetchAirports";
 
 const AirportSelector = () => {
+  //Custom hook to handle footprint calculation logic
   const {
     footprint,
     calculateFootprint,
@@ -17,9 +18,11 @@ const AirportSelector = () => {
     resetFootprint,
   } = useCalculateFootprint();
 
+  //Custom hook to fetch airport data
   const { airports, fetchAirportsLoading, fetchAirportsError } =
     useFetchAirports();
 
+  //Custom hook to manage the selection of airports and passengers
   const {
     departureAirport,
     arrivalAirport,
@@ -35,11 +38,13 @@ const AirportSelector = () => {
     resetFields,
   } = useAirportSelector({ airports, resetFootprint });
 
+  //Handle reset button
   const handleReset = () => {
     resetFields();
     resetFootprint();
   };
 
+  //Check if the form is valid
   const isFormValid = departureAirport && arrivalAirport && passengers > 0;
 
   if (fetchAirportsLoading) return <p>Loading airports...</p>;
@@ -50,6 +55,7 @@ const AirportSelector = () => {
     <div>
       <div className="container mx-auto">
         <div className="bg-green-700 opacity-90 p-6 rounded-lg shadow-md">
+          {/* Input field for selecting departure airport */}
           <AirportInput
             label="Departure Airport:"
             value={departureAirport || ""}
@@ -66,6 +72,7 @@ const AirportSelector = () => {
             placeholder="Enter IATA code or country"
             onClear={() => setDepartureAirport("")}
           />
+          {/* Input field for selecting arrival airport */}
           <AirportInput
             label="Arrival Airport:"
             value={arrivalAirport || ""}
@@ -82,11 +89,13 @@ const AirportSelector = () => {
             placeholder="Enter IATA code or country"
             onClear={() => setArrivalAirport("")}
           />
+          {/* Input field for entering the number of passengers */}
           <PassengerInput
             passengers={passengers}
             setPassengers={setPassengers}
           />
           <div className="flex justify-between mb-4">
+            {/* Button to calculate the carbon footprint */}
             <CalculateFootprintButton
               departureAirport={departureAirport}
               arrivalAirport={arrivalAirport}
@@ -94,12 +103,14 @@ const AirportSelector = () => {
               calculateFootprint={calculateFootprint}
               disabled={!isFormValid}
             />
+            {/* Button to reset the form */}
             <ResetButton resetFields={handleReset} />
           </div>
           {footprintLoading && <p>Loading...</p>}
           {footprintError && (
             <p className="text-red-500">Error: {footprintError.message}</p>
           )}
+          {/* Display the carbon footprint results */}
           <CarbonFootprintResult
             totalFootprint={footprint ? footprint.totalFootPrint : 0}
             footprintPerPerson={footprint ? footprint.footprintPerPassenger : 0}
