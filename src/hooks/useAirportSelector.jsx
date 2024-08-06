@@ -13,7 +13,7 @@ function useAirportSelector() {
   const [arrivalAirport, setArrivalAirport] = useState("");
 
   //State to store number of passengers
-  const [passengers, setPassengers] = useState(1);
+  const [passengers, setPassengers] = useState("");
 
   //State to store suggesetion for departure and arrival airports
   const [suggestions, setSuggestions] = useState({
