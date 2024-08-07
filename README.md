@@ -26,7 +26,3 @@ Link Web Application : [AirTrip CO2](https://airtripcalculator.netlify.app )
 ![image](https://github.com/user-attachments/assets/4e7836cc-b0e5-4d7b-87f8-2e0e0f3ce844)
 ![image](https://github.com/user-attachments/assets/95db7598-3dbb-4eab-beb5-f6617d06b4f9)
 
-## Contacts
-
-[Gmail](alexandru.mos36@gmail.com)
-
