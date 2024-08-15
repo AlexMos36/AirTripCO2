@@ -12,6 +12,10 @@ function useFetchAirports() {
   return useQuery({
     queryKey: ["airports"],
     queryFn: fetchAirports,
+    staleTime: 300000,
+    cacheTime: 600000,
+    refetchOnWindowFocus: false,
+    refetchInterval: false,
   });
 }
 
