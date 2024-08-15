@@ -9,11 +9,11 @@ import {
 
 function useAirportSelector() {
   //State to store selected departure and arrival airports
-  const [departureAirport, setDepartureAirport] = useState("");
-  const [arrivalAirport, setArrivalAirport] = useState("");
+  const [departureAirport, setDepartureAirport] = useState();
+  const [arrivalAirport, setArrivalAirport] = useState();
 
   //State to store number of passengers
-  const [passengers, setPassengers] = useState("");
+  const [passengers, setPassengers] = useState();
 
   //State to store suggesetion for departure and arrival airports
   const [suggestions, setSuggestions] = useState({
